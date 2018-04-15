@@ -1,0 +1,70 @@
+<html><head>
+		<meta charset="utf-8">
+		<title>HandClapper</title>
+		<script>
+			var a = 0,b = 0,f = '.',w;
+			function Clear(){
+				document.getElementById("out").innerHTML=0;
+				a = 0;b = 0;f = '.';
+			}
+			
+			function Update(k){
+				if (k.constructor.toString().indexOf("String") > -1)
+					document.getElementById("out").innerHTML=k;
+				else if (f == '.')
+					document.getElementById("out").innerHTML=a*10+k;
+				else
+					document.getElementById("out").innerHTML=b*10+k;
+				
+				if (k.constructor.toString().indexOf("Number") > -1)
+					if (f == '.')
+						a = a * 10 + k;
+					else
+						b = b * 10 + k;
+				else
+					f = k;
+			}
+			
+			function Calc(){
+				if (f == '+')
+					w = a + b;
+				else if (f == '-')
+					w = a - b;
+				else if (f == '*')
+					w = a * b;
+				else if (f == '/')
+					w = a / b;
+				
+				Clear();
+				document.getElementById("out").innerHTML=w;
+				w = 0;
+			}
+		</script>
+	</head>
+	
+	<body style="background-color:gray;">
+		<h1 id="c">CalCulater</h1>
+		<h2 id="out">0</h2>
+		
+		<button onclick="Update(1)">1</button>
+		<button onclick="Update(2)">2</button>
+		<button onclick="Update(3)">3</button>
+		<button onclick="Update('+')">+</button>
+		<p></p>
+		<button onclick="Update(4)">4</button>
+		<button onclick="Update(5)">5</button>
+		<button onclick="Update(6)">6</button>
+		<button onclick="Update('-')">-</button>
+		<p></p>
+		<button onclick="Update(7)">7</button>
+		<button onclick="Update(8)">8</button>
+		<button onclick="Update(9)">9</button>
+		<button onclick="Update('*')">&times;</button>
+		<p></p>
+		<button onclick="Update(0)">0</button>
+		<button onclick="Clear()">C</button>
+		<button onclick="Calc()">=</button>
+		<button onclick="Update('/')">&divide;</button>
+	
+
+</body></html>
