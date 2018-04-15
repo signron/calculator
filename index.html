@@ -4,7 +4,7 @@
 #f1_container {
   position: relative;
   margin: 10px auto;
-  width: 250px;
+  width: 350px;
   height: 300px;
   z-index: 1;
 }
@@ -73,8 +73,8 @@
 					w = a * b;
 				else if (f == '/')
 					w = a / b;
-				
-				Clear();
+                                a = w;
+                                b = 0;
 				document.getElementById("out").innerHTML=w;
 				w = 0;
 			}
