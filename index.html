@@ -1,6 +1,45 @@
 <html><head>
 		<meta charset="utf-8">
-		<title>HandClapper</title>
+	<style type='text/css'>
+#f1_container {
+  position: relative;
+  margin: 10px auto;
+  width: 250px;
+  height: 300px;
+  z-index: 1;
+}
+.face.back {
+  display: none;
+}
+#f1_container {
+  perspective: 1000;
+}
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  background-color:white
+}
+</style>
 		<script>
 			var a = 0,b = 0,f = '.',w;
 			function Clear(){
@@ -42,9 +81,14 @@
 		</script>
 	</head>
 	
-	<body style="background-color:gray;">
-		<h1 id="c">CalCulater</h1>
-		<h2 id="out">0</h2>
+	<body>
+		<div id="f1_container">
+    <div id="f1_card" class="shadow">
+      <div class="front face">
+        <h2>  Calculator</h2>
+      </div>
+      <div class="back face center">
+        <h2 id="out">0</h2>
 		
 		<button onclick="Update(1)">1</button>
 		<button onclick="Update(2)">2</button>
@@ -65,6 +109,9 @@
 		<button onclick="Clear()">C</button>
 		<button onclick="Calc()">=</button>
 		<button onclick="Update('/')">&divide;</button>
+      </div>
+    </div>
+</div>
 	
 
 </body></html>
